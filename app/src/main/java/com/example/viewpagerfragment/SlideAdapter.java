@@ -2,9 +2,14 @@ package com.example.viewpagerfragment;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class SlideAdapter extends FragmentStateAdapter {
+    public SlideAdapter(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
+    }
+
     @NonNull
     @Override
     public Fragment createFragment(int position) {
@@ -24,11 +29,11 @@ public class SlideAdapter extends FragmentStateAdapter {
                 data = "";
                 break;
         }
-        return null;
+        return SlideFragment.newInstance(data);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 5;
     }
 }
